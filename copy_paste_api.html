@@ -1,0 +1,29 @@
+<html>
+
+  <head>
+
+    <title>JavaScript WEB CLIP BOARD API</title>
+
+  </head>
+
+  <body>
+
+    <h1>CLIPBOARD API MAGIC</h1>
+
+    <div class="source" contenteditable="true" style="border: 1px solid #999; margin: 20px;font-size: 20px;">Try copying text from this box...</div>
+
+    <div class="target" contenteditable="true" style="border: 1px solid #999; margin: 20px;font-size: 20px;">...and pasting it into this one</div>
+
+  </body>
+
+<script>
+
+  const source = document.querySelector('div.source');
+
+  source.addEventListener('copy', (event) => {
+    const selection = document.getSelection();
+    event.clipboardData.setData('text/plain', selection.toString().toUpperCase());
+    event.preventDefault();
+  });
+
+</script>
